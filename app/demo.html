@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Vanilla javascript plugin for building nice responsive timetables">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Timetable.js demo</title>
+    <!-- build:css styles/timetablejs.css -->
+    <!-- <link rel="stylesheet" href="styles/plugin.css"> -->
+    <!-- endbuild -->
+    <!-- build:css styles/demo.css -->
+    <link rel="stylesheet" href="styles/style.css">
+    <!-- endbuild -->
+  </head>
+  <body>
+
+    <div class="hero-unit">
+      <h1>Timetable Application</h1>
+      <p></p>
+    </div>
+
+    <div class="timetable"></div>
+
+    <!-- build:js scripts/timetable.js -->
+    <script src="scripts/plugin.js"></script>
+    <!-- endbuild -->
+
+    <script>
+      var timetable = new Timetable();
+
+      timetable.setScope(5,3)
+
+      timetable.addLocations(['Stage1', 'Stage2', 'Stage3', 'Stage4', 'Stage5']);
+
+      timetable.addEvent('Sightseeing', 'Stage1', new Date(2015,7,17,9,00), new Date(2015,7,17,11,30), { url: 'https://google.com' });
+      timetable.addEvent('Zumba', 'Stage2', new Date(2015,7,17,12), new Date(2015,7,17,13), { url: '#' });
+      timetable.addEvent('Zumbu', 'Stage3', new Date(2015,7,17,13,30), new Date(2015,7,17,15), { url: '#' });
+      timetable.addEvent('Lasergaming', 'Stage4', new Date(2015,7,17,17,45), new Date(2015,7,17,19,30), { class: 'vip-only', data: { maxPlayers: 14, gameType: 'Capture the flag' } });
+      timetable.addEvent('All-you-can-eat grill', 'Stage5', new Date(2015,7,17,21), new Date(2015,7,18,1,30), { url: '#' });
+
+      var renderer = new Timetable.Renderer(timetable);
+      renderer.draw('.timetable');
+    </script>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-37417680-5');ga('send','pageview');
+    </script>
+</body>
+</html>
